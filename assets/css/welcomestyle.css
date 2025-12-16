@@ -1,0 +1,60 @@
+body {
+  background-image: url(../imgs/bg.jpg);
+}
+
+#buttonChecked {
+  position: relative;
+  background: linear-gradient(135deg, #c50090, #8f007b);
+  border: none;
+  border-radius: 50px;
+  width: 220px;
+  color: white;
+  font-size: 18px;
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  margin: 20px 10px;
+  padding: 20px;
+  cursor: pointer;
+}
+
+#buttonChecked::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: 50px;
+  background: linear-gradient(#ffffff, #d20094, #d60076);
+  z-index: -1;
+}
+
+#buttonTransparent {
+  position: relative;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 2px solid transparent;
+  border-radius: 50px;
+  background-clip: padding-box;
+  width: 220px;
+  color: white;
+  font-size: 18px;
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  margin: 20px 10px;
+  padding: 20px;
+  cursor: pointer;
+}
+
+#buttonTransparent::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50px;
+  padding: 2px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.5), rgba(210, 0, 148, 0.3));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: -1;
+}

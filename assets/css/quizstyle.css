@@ -90,3 +90,40 @@ svg {
 .hidden {
   display: none;
 }
+
+/* -- CSS BOTTONI AL POSTO DEI CHECKBOX -- 
+
+.buttonTransparent {
+background-color: trasparent;
+border: 2px solid white;
+border-radiues: 12px;
+width: 220px;
+font-color: white;
+font-size: 16px;
+font-family: "Inter", sans-serif;
+font-weight: semibold;
+margin: 20px 10px;
+}
+
+.buttonChecked {
+background-color: linear-gradient(to right, #D20094, #900080);;
+border: 2px solid white;
+border-radiues: 12px;
+width: 220px;
+font-color: white;
+font-size: 16px;
+font-family: "Inter", sans-serif;
+font-weight: semibold;
+margin: 20px 10px;
+}
+
+
+
+input#answer3 {
+  background-color: transparent;
+  border: 2px solid white;
+}
+
+.counter {
+  margin-top: 40px;
+}
