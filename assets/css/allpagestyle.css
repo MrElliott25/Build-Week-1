@@ -13,6 +13,7 @@ html {
 
 body {
   background-image: url(..//imgs/bg.jpg);
+  background-size: cover;
 }
 
 h1,
