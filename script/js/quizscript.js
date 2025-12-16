@@ -108,6 +108,7 @@ const questionDiv = document.getElementById("question-shower");
 
 //FINE VARIABILI GLOBALI
 
+//Funzione che, al caricamento della pagina, caricherà il primo set di domanda/risposta
 function createAnswers() {
   const currentQuestion = document.createElement("h1");
   currentQuestion.classList.add("showed-question");
@@ -140,14 +141,14 @@ function createAnswers() {
 
 //Questa funzione, dopo il click, aggiornerà la domanda e le risposte visibili
 function checkAnswer(event) {
+  currentQuestionCounter++;
   const currentQuestion = document.querySelector(".showed-question");
   const currentAnswers = document.querySelectorAll(".answer");
+  const nextAnswers = allAnswers[currentQuestionCounter];
   const questionCounter = document.querySelector(".counter");
-  currentQuestionCounter++;
   currentQuestion.innerText = allQuestions[currentQuestionCounter].question;
   questionCounter.innerText = "QUESTION " + (currentQuestionCounter + 1) + "/" + maxQuestions;
-  console.dir(questionCounter);
-  currentAnswers.forEach((answer) => {});
+  for (let i = 0; i < nextAnswers.length; i++) {}
 }
 
 createAnswers();
