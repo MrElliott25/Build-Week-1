@@ -102,6 +102,7 @@ const allAnswers = questions.map((question) => {
   return answers;
 });
 
+let points = 0;
 const maxQuestions = questions.length;
 let currentQuestionCounter = 0;
 const questionDiv = document.getElementById("question-shower");
@@ -110,6 +111,11 @@ const questionDiv = document.getElementById("question-shower");
 
 //Funzione che, al caricamento della pagina, caricherà il primo set di domanda/risposta
 function createAnswers() {
+  if (questionDiv === null) {
+    return;
+  }
+  const maxQuestionsSpan = document.createElement("span");
+  maxQuestionsSpan.innerText = " / " + maxQuestions;
   const currentQuestion = document.createElement("h1");
   currentQuestion.classList.add("showed-question");
   currentQuestion.innerText = allQuestions[currentQuestionCounter].question;
@@ -130,20 +136,79 @@ function createAnswers() {
   questionCounter.classList.add("counter");
   footerDiv.appendChild(questionCounter);
   footer.appendChild(footerDiv);
-  questionCounter.innerText = "QUESTION 1" + "/" + maxQuestions;
+  questionCounter.innerText = "QUESTION " + (currentQuestionCounter + 1);
+  questionCounter.appendChild(maxQuestionsSpan);
+  maxQuestionsSpan.classList.add("counterQuestion");
+  applyCorrect();
 }
 
-//Questa funzione, dopo il click, aggiornerà la domanda e le risposte visibili
+//Questa funzione, dopo il click, aggiornerà la domanda e le risposte visibili, inoltre controllerà se la risposta è corretta e applicherà di nuovo la classe
 function checkAnswer(event) {
   currentQuestionCounter++;
+  checkIfCorrect(event);
+  checkLastQuestion();
+  const maxQuestionsSpan = document.createElement("span");
+  maxQuestionsSpan.innerText = " / " + maxQuestions;
   const currentQuestion = document.querySelector(".showed-question");
   const currentAnswers = document.querySelectorAll(".answer");
   const nextAnswers = allAnswers[currentQuestionCounter];
   const questionCounter = document.querySelector(".counter");
   currentQuestion.innerText = allQuestions[currentQuestionCounter].question;
-  questionCounter.innerText = "QUESTION " + (currentQuestionCounter + 1) + "/" + maxQuestions;
-  //questionCounter.classList.add("counterQuestion");
-  for (let i = 0; i < nextAnswers.length; i++) {}
+  questionCounter.innerText = "QUESTION " + (currentQuestionCounter + 1);
+  questionCounter.appendChild(maxQuestionsSpan);
+  maxQuestionsSpan.classList.add("counterQuestion");
+  for (let i = 0; i < nextAnswers.length; i++) {
+    currentAnswers[i].innerText = nextAnswers[i];
+    if (currentAnswers[i].classList.contains("hidden") === true) {
+      currentAnswers[i].classList.remove("hidden");
+    }
+  }
+  if (nextAnswers.length < currentAnswers.length) {
+    const divToHide = currentAnswers.length - nextAnswers.length;
+    for (let j = divToHide; j < currentAnswers.length; j++) {
+      currentAnswers[j].classList.add("hidden");
+    }
+  }
+  applyCorrect();
 }
 
+//Questo randomizzerà le risposte
+function randomizePosition() {
+  allAnswers.forEach((answer) => {
+    for (let i = answer.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+
+      [answer[i], answer[j]] = [answer[j], answer[i]];
+    }
+  });
+}
+
+function applyCorrect() {
+  const currentAnswers = document.querySelectorAll(".answer");
+  currentAnswers.forEach((answer) => {
+    if (answer.innerText === questions[currentQuestionCounter].correct_answer) {
+      answer.classList.add("correct");
+      console.dir(answer);
+    } else {
+      answer.classList.remove("correct");
+    }
+  });
+}
+
+function checkIfCorrect(event) {
+  if (event.target.matches(".correct")) points++;
+  console.log(points);
+}
+
+function checkLastQuestion() {
+  if (currentQuestionCounter === maxQuestions) {
+    window.location.replace("result.html");
+  }
+}
+
+function showResult() {
+  console.log(points);
+}
+
+randomizePosition();
 createAnswers();
