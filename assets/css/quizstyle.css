@@ -124,7 +124,7 @@ svg {
   font-family: "Inter", sans-serif;
 }
 
-/*------PRIMA STRUTTURA STEFANO TIMER CSS----
+/* ------PRIMA STRUTTURA STEFANO TIMER CSS----
 #timer-container {
   display: flex;
   justify-content: right;
@@ -146,7 +146,7 @@ svg {
 
 svg {
   transform: rotate(-90deg);
-}
+} */
 
 .answer {
   max-width: 35%;
@@ -160,7 +160,7 @@ svg {
 
 .hidden {
   display: none;
-}*/
+}
 
 /*--div H1---*/
 #question-shower {
