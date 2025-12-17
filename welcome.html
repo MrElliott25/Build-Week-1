@@ -25,11 +25,20 @@
         <!-- Istruzioni -->
         <section class="instructions" aria-label="Instructions">
           <h3>Instructions</h3>
-          <p>We don't expect most engineers to know the answers to all of these questions, so don't worry if you're unsure of a few of them.</p>
+          <p>
+            We don't expect most engineers to know the answers to all of these
+            questions, so don't worry if you're unsure of a few of them.
+          </p>
 
           <ul>
-            <li>Each question is <strong>timed</strong> and can only be <strong>answered once</strong>.</li>
-            <li>Changing browser tab or opening other windows will <strong>invalidate the question</strong>.</li>
+            <li>
+              Each question is <strong>timed</strong> and can only be
+              <strong>answered once</strong>.
+            </li>
+            <li>
+              Changing browser tab or opening other windows will
+              <strong>invalidate the question</strong>.
+            </li>
             <li>This exam will take approx. <strong>0-5 minutes</strong>.</li>
           </ul>
         </section>
@@ -41,26 +50,28 @@
             <span>I promise to answer myself without help from anyone</span>
           </label>
 
-          <button id="proceedBtn" class="btn-proceed" type="button" disabled>PROCEED</button>
+          <button id="proceedBtn" class="btn-proceed" type="button" disabled>
+            PROCEED
+          </button>
         </section>
       </main>
     </div>
 
     <script>
-      const promise = document.getElementById("promise");
-      const proceedBtn = document.getElementById("proceedBtn");
+      const promise = document.getElementById("promise")
+      const proceedBtn = document.getElementById("proceedBtn")
 
       // Permette sempre il click (poi controlliamo la checkbox)
-      proceedBtn.disabled = false;
+      proceedBtn.disabled = false
 
       // Se non spuntata: alert. Se spuntata: vai a quiz.html
       proceedBtn.addEventListener("click", () => {
         if (!promise.checked) {
-          alert("Seleziona la casella 'I promise...' prima di procedere.");
-          return;
+          alert("Seleziona la casella 'I promise...' prima di procedere.")
+          return
         }
-        window.location.href = "./quiz.html";
-      });
+        window.location.href = "./quiz.html"
+      })
     </script>
   </body>
 </html>
