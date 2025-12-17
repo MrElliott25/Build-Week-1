@@ -149,11 +149,13 @@ svg {
 }
 
 .answer {
-  width: 35%;
+  max-width: 35%;
   font-size: 100px;
   color: white;
   box-sizing: border-box;
   border: 3px solid white;
+  padding: auto auto;
+  text-align: center;
 }
 
 .hidden {
