@@ -11,8 +11,7 @@ const questions = [
     category: "Science: Computers",
     type: "multiple",
     difficulty: "easy",
-    question:
-      "In the programming language Java, which of these keywords would you put on a variable to make sure it does not get modified?",
+    question: "In the programming language Java, which of these keywords would you put on a variable to make sure it does not get modified?",
     correct_answer: "Final",
     incorrect_answers: ["Static", "Private", "Public"],
   },
@@ -28,8 +27,7 @@ const questions = [
     category: "Science: Computers",
     type: "boolean",
     difficulty: "easy",
-    question:
-      "Pointers were not used in the original C programming language; they were added later on in C++.",
+    question: "Pointers were not used in the original C programming language; they were added later on in C++.",
     correct_answer: "False",
     incorrect_answers: ["True"],
   },
@@ -148,6 +146,7 @@ function checkAnswer(event) {
   const questionCounter = document.querySelector(".counter");
   currentQuestion.innerText = allQuestions[currentQuestionCounter].question;
   questionCounter.innerText = "QUESTION " + (currentQuestionCounter + 1) + "/" + maxQuestions;
+  //questionCounter.classList.add("counterQuestion");
   for (let i = 0; i < nextAnswers.length; i++) {}
 }
 
