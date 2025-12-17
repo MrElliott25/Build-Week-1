@@ -81,7 +81,110 @@ const questions = [
   },
 ];
 
-//VARIBILI GLOBALI
+//VARIABILI GLOBALI
+
+const maxQuestions = questions.length;
+let currentQuestionCounter = 0;
+
+// timer
+let timeLeft = 60;
+let timerInterval = null;
+
+//FUNZIONE PER VEDERE DOMANDE E RISPOSTE
+
+function showQuestion() {
+  // svuoto tutto
+  const questionDiv = document.getElementById("question-shower");
+  const answersDiv = document.getElementById("answer-shower");
+
+  questionDiv.innerHTML = "";
+  answersDiv.innerHTML = "";
+
+  // DOMANDA
+  const questionTitle = document.createElement("h2");
+  questionTitle.innerText = questions[currentQuestionCounter].question;
+  questionDiv.appendChild(questionTitle);
+
+  // RISPOSTE (corrette + sbagliate)
+  const answers = [questions[currentQuestionCounter].correct_answer, ...questions[currentQuestionCounter].incorrect_answers];
+
+  answers.forEach((answerText) => {
+    const button = document.createElement("button");
+    button.innerText = answerText;
+    button.classList.add("answer");
+
+    button.addEventListener("click", () => {
+      handleAnswerClick(button);
+    });
+
+    answersDiv.appendChild(button);
+  });
+
+  // riavvio timer
+  startTimer();
+}
+
+//UNA SOLA RISPOSTA SELEZIONABILE
+
+function handleAnswerClick(clickedButton) {
+  const allButtons = document.querySelectorAll(".answer");
+
+  // tolgo "selected" a tutti
+  allButtons.forEach((btn) => {
+    btn.classList.remove("selected");
+  });
+
+  // aggiungo solo a quello cliccato
+  clickedButton.classList.add("selected");
+
+  // dopo 500ms passo alla prossima domanda
+  setTimeout(nextQuestion, 500);
+}
+
+//PASSARE ALLA DOMANDA SUCCESSIVA
+
+function nextQuestion() {
+  currentQuestionCounter++;
+
+  if (currentQuestionCounter < maxQuestions) {
+    showQuestion();
+  } else {
+    alert("Quiz finito!");
+    clearInterval(timerInterval);
+  }
+}
+
+//TIMER CHE RIPARTE AD OGNI DOMANDA
+
+function startTimer() {
+  clearInterval(timerInterval); // ferma il vecchio timer
+  timeLeft = 60;
+
+  const countdown = document.getElementById("countdown");
+  const progressCircle = document.querySelector(".progression-circle");
+
+  timerInterval = setInterval(() => {
+    timeLeft--;
+
+    countdown.innerHTML = `
+      <p class="label">SECONDS</p>
+      ${timeLeft}
+      <p class="label">REMAINING</p>
+    `;
+
+    progressCircle.style.strokeDashoffset = 421 - (timeLeft * 421) / 60;
+
+    if (timeLeft === 0) {
+      clearInterval(timerInterval);
+      nextQuestion(); // se finisce il tempo, vai avanti
+    }
+  }, 1000);
+}
+
+//AVVIO DEL QUIZ
+showQuestion();
+
+/*//VARIBILI GLOBALI
 
 //Suddivido i miei oggetti con domanda e risposta in due array che contengono uno le domande, e uno le risposte
 
@@ -121,6 +224,10 @@ function createAnswers() {
     answerBlock.addEventListener("click", (event) => {
       checkAnswer(event, "selected");
     });
+
+    function checkAnswer(event, selected) {
+      event.target.classList.toggle(selected); // Aggiunge/toglie la classe
+    }
   }
   const footer = document.getElementsByTagName("footer")[0];
   const footerDiv = document.createElement("div");
@@ -144,9 +251,9 @@ function checkAnswer(event) {
   for (let i = 0; i < nextAnswers.length; i++) {}
 }
 
-createAnswers();
+createAnswers();*/
 
-// -- TIMER SEMPLICE --
+/* -- TIMER SEMPLICE --
 
 let timeLeft = 60; // Tempo di partenza
 const progressCircle = document.querySelector(".progression-circle");
@@ -165,4 +272,4 @@ const timer = setInterval(function () {
   if (timeLeft === 0) {
     clearInterval(timer);
   }
-}, 1000); // Ripeti ogni 1 secondo
+}, 1000); // Ripeti ogni 1 secondo*/
