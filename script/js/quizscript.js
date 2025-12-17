@@ -11,7 +11,8 @@ const questions = [
     category: "Science: Computers",
     type: "multiple",
     difficulty: "easy",
-    question: "In the programming language Java, which of these keywords would you put on a variable to make sure it does not get modified?",
+    question:
+      "In the programming language Java, which of these keywords would you put on a variable to make sure it does not get modified?",
     correct_answer: "Final",
     incorrect_answers: ["Static", "Private", "Public"],
   },
@@ -27,7 +28,8 @@ const questions = [
     category: "Science: Computers",
     type: "boolean",
     difficulty: "easy",
-    question: "Pointers were not used in the original C programming language; they were added later on in C++.",
+    question:
+      "Pointers were not used in the original C programming language; they were added later on in C++.",
     correct_answer: "False",
     incorrect_answers: ["True"],
   },
@@ -114,16 +116,10 @@ function createAnswers() {
   questionDiv.appendChild(currentQuestion);
   const answersDiv = document.getElementById("answer-shower");
   for (let i = 0; i < allAnswers[currentQuestionCounter].length; i++) {
-    const answerBlock = document.createElement("input");
-    const labelForAnswer = document.createElement("label");
-    answerBlock.id = "answer" + (i + 1);
-    answerBlock.type = "radio";
-    answerBlock.name = "answer";
+    const answerBlock = document.createElement("div");
+    answerBlock.innerText = allAnswers[currentQuestionCounter][i];
     answerBlock.classList.add("answer");
-    labelForAnswer.setAttribute("for", answerBlock.id);
-    labelForAnswer.innerText = allAnswers[currentQuestionCounter][i];
     answersDiv.appendChild(answerBlock);
-    answersDiv.appendChild(labelForAnswer);
     answerBlock.addEventListener("click", (event) => {
       checkAnswer(event);
     });
