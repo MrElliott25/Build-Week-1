@@ -49,12 +49,82 @@ p {
   font-family: "Inter", sans-serif;
 }
 
-img {
+/*img {
   max-width: 15%;
   margin: 30px 100px;
   padding-block: -20px;
+}*/
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 30px 100px;
+  max-width: 100%;
 }
 
+img {
+  max-width: 15%;
+  margin: 0;
+}
+
+/*--TIMER--*/
+
+#timer-container {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  filter: drop-shadow(0px 5px 15px rgba(0, 0, 0, 0.35));
+  margin: 0;
+  flex-shrink: 0;
+}
+
+svg {
+  transform: rotate(-90deg);
+  width: 100%;
+  height: 100%;
+}
+
+.base-circle {
+  fill: none;
+  stroke: #00ffff;
+  stroke-width: 14;
+  stroke-linecap: round;
+}
+
+.progression-circle {
+  fill: none;
+  stroke: #6b4a6d;
+  stroke-width: 14;
+  stroke-linecap: square;
+  stroke-dasharray: 565;
+  stroke-dashoffset: 423;
+  transition: stroke-dashoffset 1s linear;
+}
+
+#countdown {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  font-size: 52px;
+  font-weight: 400;
+  font-family: "Outfit", sans-serif;
+  line-height: 1;
+}
+
+#countdown .label {
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: -0.4px;
+  margin-top: 5px;
+  opacity: 0.9;
+  font-family: "Inter", sans-serif;
+}
+
+/*------PRIMA STRUTTURA STEFANO TIMER CSS----
 #timer-container {
   display: flex;
   justify-content: right;
@@ -88,6 +158,13 @@ svg {
 
 .hidden {
   display: none;
+}*/
+
+/*--div H1---*/
+#question-shower {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  clear: both;
 }
 
 /* -- CSS BOTTONI AL POSTO DEI CHECKBOX -- 
@@ -116,7 +193,8 @@ svg {
   inset: 0;
   border-radius: 50px;
   padding: 2px;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.5), rgba(210, 0, 148, 0.3));
+  background: linear-gradient(175deg, rgba(255, 255, 255), rgba(210, 0, 148, 0.3));
+  box-shadow: inset;
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
