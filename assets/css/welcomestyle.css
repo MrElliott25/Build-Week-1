@@ -50,7 +50,8 @@ body {
   inset: 0;
   border-radius: 50px;
   padding: 2px;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.5), rgba(210, 0, 148, 0.3));
+  background: linear-gradient(175deg, rgba(255, 255, 255), rgba(210, 0, 148, 0.3));
+  box-shadow: inset;
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
