@@ -1,36 +1,28 @@
-
-
-
-
-
-*{
-    box-sizing: border-box;
-   font-family: "Gilroy", "Manrope", "Inter", sans-serif;
+* {
+  box-sizing: border-box;
 }
 
-body{
-    background-image: url(../imgs/bg.jpg);
-    background-size: cover;
-    color: white;
+body {
+  background-image: url(../imgs/bg.jpg);
+  background-size: cover;
+  color: white;
 }
 
-header img{
-    width: 230px;
-    margin: 3.5em 0 0 8em;
+header img {
+  width: 230px;
+  margin: 3.5em 0 0 8em;
 }
 
-
-
-main{
-    width: 90%;
-    margin: 0 auto;
+main {
+  width: 90%;
+  margin: 0 auto;
 }
 
 .results {
   text-align: center;
   color: aliceblue;
-margin-bottom: 6%;
-
+  margin-bottom: 6%;
+  font-family: "Gilroy", "Manrope", "Inter", sans-serif;
 }
 .results h1 {
   font-size: 4em;
@@ -41,61 +33,93 @@ margin-bottom: 6%;
   font-size: 2em;
   margin-top: 0;
   font-family: "Inter", sans-serif;
-
+}
+.numeri-percentuali {
+  font-size: 1.5em;
+  font-weight: 700;
+  font-family: "Poppins", sans-serif;
+}
+.questions {
+  font-size: 28px;
+}
+.percentuale h2 {
+  line-height: 1;
+}
+#container {
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+  display: flex;
+  padding: 470px;
+  padding-top: 90px;
+  padding-bottom: 0;
 }
 
-#container{
-display: inline-block;
-text-align: center;
-width: 100%;
-display: flex;
+.percentuale {
+  display: inline-block;
+  font-size: 2.4em;
+  margin: 0%;
+
+  font-weight: 300;
+}
+.percentuale p {
+  margin: 0%;
+}
+.percentuale h2 {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  font-size: 58px;
+  font-weight: 400;
+  letter-spacing: 0.2px;
+  color: #ffffff;
 }
 
-.percentuale{
-    display: inline-block;
+#donut {
+  border: solid 60px #00ffff;
+  border-radius: 50%;
+  width: 450px;
+  height: 450px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 20px;
+  padding-top: 60px;
+  line-height: 180%;
+  position: relative;
+  top: -150px;
 }
 
-#donut{
-    border: solid 60px #00FFFF;
-    border-radius: 50%;
-    width: 450px;
-    height: 450px;
-    margin: 0 auto;
-    text-align: center;
-    padding: 20px;
-    padding-top: 60px;
+#donut h2 {
+  margin-bottom: 2px;
+  font-size: 1.5em;
 }
 
-#donut h2{
-    margin-bottom: 2px;
-    font-size: 1.5em;
+#donut h3 {
+  color: #00ffff;
+  font-size: 1.3em;
+  margin-top: 1px;
 }
 
-#donut h3{
-    color: #00FFFF;
-    font-size: 1.3em;
-    margin-top: 1px;
-}
-
-#donut p{
-    margin: 0 auto;
-    width: 200px;
-    height: auto;
-    / border: solid 2px red; */
-    font-size: 14px;
-    opacity: 0.8;
-    line-height: 1.3em;
+#donut p {
+  margin: 0 auto;
+  line-height: 1.6;
+  text-align: center;
+  height: auto;
+  font-size: 17px;
+  opacity: 0.8;
+  line-height: 1.3em;
 }
 
 footer {
   text-align: center;
   border: 2px solid white;
   width: 14%;
-  margin-left: 42%;
+  margin-left: 43%;
   margin-top: 5%;
   background: transparent;
   color: #ffffff;
   transition: all 0.3s ease;
+  position: relative;
+  top: -180px;
 }
 footer h4 {
   font-size: 1.7em;
