@@ -98,6 +98,9 @@ function showQuestion() {
   const questionDiv = document.getElementById("question-shower");
   const answersDiv = document.getElementById("answer-shower");
 
+  //Con questo check, verifico su che pagina lo sto utilizzando
+  if (questionDiv === null) return;
+
   questionDiv.innerHTML = "";
   answersDiv.innerHTML = "";
 
@@ -163,8 +166,8 @@ function handleAnswerClick(clickedButton) {
 
   checkIfCorrect(clickedButton);
 
-  // dopo 500ms passo alla prossima domanda
-  setTimeout(nextQuestion, 500);
+  // dopo 600ms passo alla prossima domanda
+  setTimeout(nextQuestion, 600);
 }
 
 //PASSARE ALLA DOMANDA SUCCESSIVA
@@ -233,3 +236,4 @@ function startTimer() {
 
 //AVVIO DEL QUIZ
 showQuestion();
+console.log(points);
