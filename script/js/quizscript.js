@@ -177,10 +177,16 @@ function nextQuestion() {
   if (currentQuestionCounter < maxQuestions) {
     showQuestion();
   } else {
-    // Quiz finito
     clearInterval(timerInterval);
+
+    //Se ho finito, creo i risultati
+    const results = createResultsToPass();
+    console.log(results);
+
+    const stringForUrl = JSON.stringify(results);
+    const url = "/result.html?risultatiTest=" + stringForUrl;
     // Reindirizza alla pagina dei risultati
-    window.location.href = "result.html";
+    window.location.href = url;
   }
 }
 
@@ -199,6 +205,15 @@ function checkIfCorrect(button) {
   if (button.classList.contains("correct")) {
     points++;
   }
+}
+
+function createResultsToPass() {
+  const results = {
+    totalQuestions: maxQuestions,
+    rightQuestions: points,
+    wrongQuestions: maxQuestions - points,
+  };
+  return results;
 }
 
 //TIMER CHE RIPARTE AD OGNI DOMANDA
@@ -236,4 +251,3 @@ function startTimer() {
 
 //AVVIO DEL QUIZ
 showQuestion();
-console.log(points);
