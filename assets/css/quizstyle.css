@@ -175,6 +175,14 @@ svg {
   color: white;
 }
 
+.counter .separator {
+  color: #d20094; /* Slash rosa */
+}
+
+.counter .total {
+  color: #d20094; /* Totale rosa */
+}
+
 /* -- CSS BOTTONI AL POSTO DEI CHECKBOX --*/
 
 .answer {

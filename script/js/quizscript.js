@@ -82,7 +82,6 @@ const questions = [
 ];
 
 //VARIABILI GLOBALI
-
 const maxQuestions = questions.length;
 let currentQuestionCounter = 0;
 
@@ -91,7 +90,6 @@ let timeLeft = 60;
 let timerInterval = null;
 
 //FUNZIONE PER VEDERE DOMANDE E RISPOSTE
-
 function showQuestion() {
   // svuoto tutto
   const questionDiv = document.getElementById("question-shower");
@@ -101,12 +99,15 @@ function showQuestion() {
   answersDiv.innerHTML = "";
 
   // DOMANDA
-  const questionTitle = document.createElement("h2");
+  const questionTitle = document.createElement("h1");
   questionTitle.innerText = questions[currentQuestionCounter].question;
   questionDiv.appendChild(questionTitle);
 
-  // RISPOSTE (corrette + sbagliate)
+  // RISPOSTE (corrette + sbagliate) - MESCOLATE
   const answers = [questions[currentQuestionCounter].correct_answer, ...questions[currentQuestionCounter].incorrect_answers];
+
+  // Mescola le risposte in ordine casuale
+  answers.sort(() => Math.random() - 0.5);
 
   answers.forEach((answerText) => {
     const button = document.createElement("button");
@@ -120,12 +121,35 @@ function showQuestion() {
     answersDiv.appendChild(button);
   });
 
+  // AGGIUNGI COUNTER DOMANDE
+  updateQuestionCounter();
+
   // riavvio timer
   startTimer();
 }
 
-//UNA SOLA RISPOSTA SELEZIONABILE
+//AGGIORNA IL COUNTER DELLE DOMANDE
+function updateQuestionCounter() {
+  let counterDiv = document.querySelector(".counter-container");
 
+  // Se non esiste, crealo
+  if (!counterDiv) {
+    counterDiv = document.createElement("div");
+    counterDiv.classList.add("counter-container");
+    document.body.appendChild(counterDiv);
+  }
+
+  // Aggiorna il contenuto
+  counterDiv.innerHTML = `
+    <h3 class="counter">
+      QUESTION <span class="current">${currentQuestionCounter + 1}</span>
+      <span class="separator">/</span>
+      <span class="total">${maxQuestions}</span>
+    </h3>
+  `;
+}
+
+//UNA SOLA RISPOSTA SELEZIONABILE
 function handleAnswerClick(clickedButton) {
   const allButtons = document.querySelectorAll(".answer");
 
@@ -142,26 +166,33 @@ function handleAnswerClick(clickedButton) {
 }
 
 //PASSARE ALLA DOMANDA SUCCESSIVA
-
 function nextQuestion() {
   currentQuestionCounter++;
 
   if (currentQuestionCounter < maxQuestions) {
     showQuestion();
   } else {
-    alert("Quiz finito!");
+    // Quiz finito
     clearInterval(timerInterval);
+    // Reindirizza alla pagina dei risultati
+    window.location.href = "results.html";
   }
 }
 
 //TIMER CHE RIPARTE AD OGNI DOMANDA
-
 function startTimer() {
   clearInterval(timerInterval); // ferma il vecchio timer
   timeLeft = 60;
 
   const countdown = document.getElementById("countdown");
   const progressCircle = document.querySelector(".progression-circle");
+
+  // Aggiorna subito il primo valore
+  countdown.innerHTML = `
+    <p class="label">SECONDS</p>
+    ${timeLeft}
+    <p class="label">REMAINING</p>
+  `;
 
   timerInterval = setInterval(() => {
     timeLeft--;
@@ -174,7 +205,7 @@ function startTimer() {
 
     progressCircle.style.strokeDashoffset = 421 - (timeLeft * 421) / 60;
 
-    if (timeLeft === 0) {
+    if (timeLeft <= 0) {
       clearInterval(timerInterval);
       nextQuestion(); // se finisce il tempo, vai avanti
     }
@@ -183,93 +214,3 @@ function startTimer() {
 
 //AVVIO DEL QUIZ
 showQuestion();
-
-/*//VARIBILI GLOBALI
-
-//Suddivido i miei oggetti con domanda e risposta in due array che contengono uno le domande, e uno le risposte
-
-const allQuestions = questions.map((quest) => {
-  return {
-    question: quest.question,
-    difficulty: quest.difficulty,
-    type: quest.type,
-  };
-});
-
-const allAnswers = questions.map((question) => {
-  const answers = [];
-  answers.push(question.correct_answer);
-  question.incorrect_answers.forEach((incorrect) => answers.push(incorrect));
-  return answers;
-});
-
-const maxQuestions = questions.length;
-let currentQuestionCounter = 0;
-const questionDiv = document.getElementById("question-shower");
-
-//FINE VARIABILI GLOBALI
-
-//Funzione che, al caricamento della pagina, caricherà il primo set di domanda/risposta
-function createAnswers() {
-  const currentQuestion = document.createElement("h1");
-  currentQuestion.classList.add("showed-question");
-  currentQuestion.innerText = allQuestions[currentQuestionCounter].question;
-  questionDiv.appendChild(currentQuestion);
-  const answersDiv = document.getElementById("answer-shower");
-  for (let i = 0; i < allAnswers[currentQuestionCounter].length; i++) {
-    const answerBlock = document.createElement("div");
-    answerBlock.innerText = allAnswers[currentQuestionCounter][i];
-    answerBlock.classList.add("answer");
-    answersDiv.appendChild(answerBlock);
-    answerBlock.addEventListener("click", (event) => {
-      checkAnswer(event, "selected");
-    });
-
-    function checkAnswer(event, selected) {
-      event.target.classList.toggle(selected); // Aggiunge/toglie la classe
-    }
-  }
-  const footer = document.getElementsByTagName("footer")[0];
-  const footerDiv = document.createElement("div");
-  const questionCounter = document.createElement("h4");
-  questionCounter.classList.add("counter");
-  footerDiv.appendChild(questionCounter);
-  footer.appendChild(footerDiv);
-  questionCounter.innerText = "QUESTION 1" + "/" + maxQuestions;
-}
-
-//Questa funzione, dopo il click, aggiornerà la domanda e le risposte visibili
-function checkAnswer(event) {
-  currentQuestionCounter++;
-  const currentQuestion = document.querySelector(".showed-question");
-  const currentAnswers = document.querySelectorAll(".answer");
-  const nextAnswers = allAnswers[currentQuestionCounter];
-  const questionCounter = document.querySelector(".counter");
-  currentQuestion.innerText = allQuestions[currentQuestionCounter].question;
-  questionCounter.innerText = "QUESTION " + (currentQuestionCounter + 1) + "/" + maxQuestions;
-  questionCounter.classList.add("counterQuestion");
-  for (let i = 0; i < nextAnswers.length; i++) {}
-}
-
-createAnswers();*/
-
-/* -- TIMER SEMPLICE --
-
-let timeLeft = 60; // Tempo di partenza
-const progressCircle = document.querySelector(".progression-circle");
-const timer = setInterval(function () {
-  timeLeft = timeLeft - 1; // Togli 1 secondo
-
-  // Aggiorna il numero
-  document.getElementById("countdown").innerHTML = `
-    <p class="label">SECONDS</p>
-    ${timeLeft}
-    <p class="label">REMAINING</p>
-  `;
-
-  progressCircle.style.strokeDashoffset = 421 - (timeLeft * 421) / 60 + 2;
-  // Se arriva a 0, ferma tutto
-  if (timeLeft === 0) {
-    clearInterval(timer);
-  }
-}, 1000); // Ripeti ogni 1 secondo*/
