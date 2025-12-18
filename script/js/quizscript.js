@@ -161,12 +161,14 @@ function checkAnswer(event) {
     currentAnswers[i].innerText = nextAnswers[i];
     if (currentAnswers[i].classList.contains("hidden") === true) {
       currentAnswers[i].classList.remove("hidden");
+      currentAnswers[i].style.display = "inline-block";
     }
   }
   if (nextAnswers.length < currentAnswers.length) {
     const divToHide = currentAnswers.length - nextAnswers.length;
     for (let j = divToHide; j < currentAnswers.length; j++) {
       currentAnswers[j].classList.add("hidden");
+      currentAnswers[j].style.display = "none";
     }
   }
   applyCorrect();
