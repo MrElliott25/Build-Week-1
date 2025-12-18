@@ -1,0 +1,267 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap");
+
+/* Reset base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+/* Sfondo a tutta pagina */
+body {
+  background: url("../imgs/bg.jpg") center/cover no-repeat fixed;
+  color: #fff;
+}
+
+/* Wrapper */
+.bg {
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* Pannello contenuti (come .panel) */
+.content {
+  min-height: 100vh;
+  width: 100%;
+  padding: 110px 160px;
+display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+position: relative; 
+}
+
+/* LOGO */
+.brand {
+  position: absolute;
+  top: 110px;
+  left: 160px;
+}
+
+.brand img {
+  height: 56px;
+  width: auto;
+  display: block;
+}
+
+/* Titoli */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Outfit", sans-serif;
+}
+
+/* Titolo principale */
+h1 {
+  font-size: 96px;
+  font-weight: 700;
+  line-height: 1.05;
+  margin-bottom: 18px;
+  margin-top: auto;
+}
+
+/* Sottotitolo */
+.subtitle {
+  font-family: "Inter", sans-serif;
+  font-size: 40px;
+  line-height: 1.6;
+  opacity: 0.9;
+  margin-bottom: 60px;
+}
+
+/* Stelle */
+.stars {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  margin: 10px 0 60px;
+}
+
+.star {
+  font-family: "Outfit", sans-serif;
+  font-size: 100px;
+  line-height: 1;
+
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+
+  color: rgba(255, 255, 255, 0.23);
+}
+
+.star.filled {
+  color: #00f0ff;
+}
+
+/* Testo sotto stelle */
+.hint {
+  font-family: "Inter", sans-serif;
+  font-size: 36px;
+  line-height: 1.6;
+  opacity: 0.9;
+  margin-bottom: 28px;
+}
+
+/* Commento */
+.field {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto 70px;
+  text-align: left;
+  padding-left: 4rem;
+  padding-right: 4rem;
+}
+
+.field input {
+  width: 100%;
+  background: transparent;
+  border: 0;
+  outline: 0;
+
+  color: #fff;
+  font-family: "Inter", sans-serif;
+  font-size: 25px;
+  padding: 16px 0;
+}
+
+.field input::placeholder {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+/* Linea rosa */
+.underline {
+  height: 2px;
+  background: #d20094;
+  margin-top: 8px;
+  opacity: 0.9;
+}
+
+/* Bottone */
+.cta {
+  background-color: #00f0ff;
+  color: #061226;
+  text-transform: uppercase;
+
+  border: 0;
+  border-radius: 4px;
+
+  padding: 30px 170px;
+  font-family: "Outfit", sans-serif;
+  font-weight: 900;
+  font-size: 26px;
+  letter-spacing: 0.5px;
+
+  cursor: pointer;
+  box-shadow: 0 0 30px rgba(0, 240, 255, 0.6), 0 16px 32px rgba(0, 0, 0, 0.35);
+}
+
+/* laptop */
+@media (max-width: 1400px) {
+  .content {
+    padding: 90px 110px;
+  }
+
+  /* logo  */
+  .brand {
+    top: 90px;
+    left: 110px;
+  }
+
+  .brand img {
+    height: 56px;
+  }
+
+  h1 {
+    font-size: 78px;
+  }
+
+  .subtitle {
+    font-size: 18px;
+    margin-bottom: 44px;
+  }
+
+  .star {
+    font-size: 52px;
+  }
+
+  .hint {
+    font-size: 18px;
+  }
+
+  .field {
+    max-width: 980px;
+    margin-bottom: 55px;
+  }
+
+  .cta {
+    padding: 24px 120px;
+    font-size: 24px;
+  }
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+  .content {
+    padding: 48px 28px;
+  }
+
+  /* logo */
+  .brand {
+    top: 48px;
+    left: 28px;
+  }
+
+  .brand img {
+    height: 44px;
+  }
+
+  h1 {
+    font-size: 52px;
+  }
+
+  .subtitle {
+    font-size: 16px;
+    margin-bottom: 28px;
+  }
+
+  .stars {
+    gap: 10px;
+    margin-bottom: 30px;
+  }
+
+  .star {
+    font-size: 38px;
+  }
+
+  .hint {
+    font-size: 16px;
+    margin-bottom: 18px;
+  }
+
+  .field {
+    max-width: 100%;
+    margin-bottom: 35px;
+  }
+
+  .field input {
+    font-size: 16px;
+    padding: 12px 0;
+  }
+
+  .cta {
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 20px;
+  }
+}
