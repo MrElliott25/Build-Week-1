@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;700;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap");
 
-/* Reset base */
+/* Reset */
 * {
   margin: 0;
   padding: 0;
@@ -25,7 +25,7 @@ body {
   width: 100%;
 }
 
-/* Contenuto: spazi e struttura (ottimizzato per 1920x1080) */
+/* Contenuto */
 .panel {
   min-height: 100vh;
   width: 100%;
@@ -127,11 +127,13 @@ h6 {
   border: 2px solid rgba(255, 255, 255, 0.9);
   background: transparent;
   display: inline-block;
+  transition: background-color 0.4s ease, border-color 0.4s ease, transform 0.2s ease;
 }
 
 .promise input:checked {
   border-color: #00f0ff;
   background: #00f0ff;
+  transform: scale(1.2);
 }
 
 /* Bottone */

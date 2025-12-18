@@ -1,158 +1,267 @@
-/* Reset base: include padding/border nel calcolo delle dimensioni */
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap");
+
+/* Reset base */
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
-/* Altezza piena per poter centrare bene */
 html,
 body {
   height: 100%;
 }
 
-/* Stile generale della pagina + sfondo */
+/* Sfondo a tutta pagina */
 body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  color: white;
-
-  /* Immagine di sfondo a schermo intero */
-  background-image: url("../imgs/bg.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  background: url("../imgs/bg.jpg") center/cover no-repeat fixed;
+  color: #fff;
 }
 
-/* Contenitore che centra tutto al centro dello schermo */
+/* Wrapper */
 .bg {
   min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 60px 20px;
-}
-
-/* Blocco principale con il contenuto */
-.content {
   width: 100%;
-  max-width: 950px;
-  text-align: center;
 }
 
-/* logo */
+/* Pannello contenuti (come .panel) */
+.content {
+  min-height: 100vh;
+  width: 100%;
+  padding: 110px 160px;
+display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+position: relative; 
+}
+
+/* LOGO */
 .brand {
-  display: flex;
-  justify-content: flex-start;
-  margin-bottom: 30px;
+  position: absolute;
+  top: 110px;
+  left: 160px;
 }
 
 .brand img {
-  height: 34px;
+  height: 56px;
+  width: auto;
+  display: block;
 }
 
-/* Titolo e sottotitolo */
+/* Titoli */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Outfit", sans-serif;
+}
+
+/* Titolo principale */
 h1 {
-  margin: 0 0 12px;
-  font-size: 56px;
+  font-size: 96px;
+  font-weight: 700;
+  line-height: 1.05;
+  margin-bottom: 18px;
+  margin-top: auto;
 }
 
+/* Sottotitolo */
 .subtitle {
-  margin: 0 auto 28px;
-  max-width: 700px;
-  font-size: 16px;
-  color: #cfd6ee;
+  font-family: "Inter", sans-serif;
+  font-size: 40px;
   line-height: 1.6;
+  opacity: 0.9;
+  margin-bottom: 60px;
 }
 
-/* Contenitore delle stelle */
+/* Stelle */
 .stars {
   display: flex;
   justify-content: center;
-  gap: 12px;
-  margin: 20px 0 30px;
+  gap: 18px;
+  margin: 10px 0 60px;
 }
 
-/* Singola stella (bottone) */
 .star {
-  font-size: 44px;
+  font-family: "Outfit", sans-serif;
+  font-size: 100px;
+  line-height: 1;
+
   background: transparent;
-  border: none;
+  border: 0;
   cursor: pointer;
-  color: rgba(255, 255, 255, 0.25);
+
+  color: rgba(255, 255, 255, 0.23);
 }
 
-/* voto selezionato */
 .star.filled {
-  color: #27f1ff;
+  color: #00f0ff;
 }
 
-/* Testo guida sotto le stelle */
+/* Testo sotto stelle */
 .hint {
-  margin: 0 0 18px;
-  color: #cfd6ee;
-  font-size: 16px;
+  font-family: "Inter", sans-serif;
+  font-size: 36px;
+  line-height: 1.6;
+  opacity: 0.9;
+  margin-bottom: 28px;
 }
 
-/* Sezione input commento */
+/* Commento */
 .field {
   width: 100%;
-  max-width: 720px;
-  margin: 0 auto 30px;
+  max-width: 1200px;
+  margin: 0 auto 70px;
   text-align: left;
+  padding-left: 4rem;
+  padding-right: 4rem;
 }
 
 .field input {
   width: 100%;
   background: transparent;
-  border: none;
-  outline: none;
-  color: white;
-  font-size: 14px;
-  padding: 10px 0;
+  border: 0;
+  outline: 0;
+
+  color: #fff;
+  font-family: "Inter", sans-serif;
+  font-size: 25px;
+  padding: 16px 0;
 }
 
-/* Colore del placeholder */
 .field input::placeholder {
-  color: rgba(200, 200, 200, 0.7);
+  color: rgba(255, 255, 255, 0.55);
 }
 
-/* Linea colorata sotto l’input */
+/* Linea rosa */
 .underline {
   height: 2px;
-  background: #ff2bbf;
-  margin-top: 6px;
+  background: #d20094;
+  margin-top: 8px;
+  opacity: 0.9;
 }
 
-/* Bottone principale */
+/* Bottone */
 .cta {
-  border: none;
-  padding: 16px 60px;
-  background: #27f1ff;
-  color: #071024;
-  font-weight: bold;
+  background-color: #00f0ff;
+  color: #061226;
+  text-transform: uppercase;
+
+  border: 0;
+  border-radius: 4px;
+
+  padding: 30px 170px;
+  font-family: "Outfit", sans-serif;
+  font-weight: 900;
+  font-size: 26px;
+  letter-spacing: 0.5px;
+
   cursor: pointer;
   box-shadow: 0 0 30px rgba(0, 240, 255, 0.6), 0 16px 32px rgba(0, 0, 0, 0.35);
 }
 
-/* Adattamento per schermi piccoli */
-@media (max-width: 768px) {
+/* laptop */
+@media (max-width: 1400px) {
   .content {
-    max-width: 95%;
+    padding: 90px 110px;
+  }
+
+  /* logo  */
+  .brand {
+    top: 90px;
+    left: 110px;
+  }
+
+  .brand img {
+    height: 56px;
   }
 
   h1 {
-    font-size: 34px;
+    font-size: 78px;
   }
 
-  .subtitle,
-  .hint {
-    font-size: 14px;
+  .subtitle {
+    font-size: 18px;
+    margin-bottom: 44px;
   }
 
   .star {
-    font-size: 34px;
+    font-size: 52px;
+  }
+
+  .hint {
+    font-size: 18px;
+  }
+
+  .field {
+    max-width: 980px;
+    margin-bottom: 55px;
   }
 
   .cta {
-    padding: 12px 40px;
+    padding: 24px 120px;
+    font-size: 24px;
+  }
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+  .content {
+    padding: 48px 28px;
+  }
+
+  /* logo */
+  .brand {
+    top: 48px;
+    left: 28px;
+  }
+
+  .brand img {
+    height: 44px;
+  }
+
+  h1 {
+    font-size: 52px;
+  }
+
+  .subtitle {
+    font-size: 16px;
+    margin-bottom: 28px;
+  }
+
+  .stars {
+    gap: 10px;
+    margin-bottom: 30px;
+  }
+
+  .star {
+    font-size: 38px;
+  }
+
+  .hint {
+    font-size: 16px;
+    margin-bottom: 18px;
+  }
+
+  .field {
+    max-width: 100%;
+    margin-bottom: 35px;
+  }
+
+  .field input {
+    font-size: 16px;
+    padding: 12px 0;
+  }
+
+  .cta {
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 20px;
   }
 }

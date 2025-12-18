@@ -28,7 +28,7 @@
           to a friend or a colleague?
         </p>
 
-        <!-- stelle (voto 1-10) -->
+        <!-- stelle -->
         <div class="stars" id="stars">
           <button class="star" type="button" data-value="1">★</button>
           <button class="star" type="button" data-value="2">★</button>
@@ -70,7 +70,7 @@
       let rating = 6;
       let rated = false;
 
-      // Aggiorna le stelle "piene" in base al valore passato
+      // Aggiorna le stelle "piene" 
       function drawStars(value) {
         for (let i = 0; i < stars.length; i++) {
           if (i < value) stars[i].classList.add("filled");
@@ -88,7 +88,7 @@
           drawStars(i + 1);
         });
 
-        // Click: salva il voto definitivo
+        // Click: salva il voto 
         stars[i].addEventListener("click", function () {
           rating = i + 1;
           rated = true;
