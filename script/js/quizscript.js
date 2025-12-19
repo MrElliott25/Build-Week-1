@@ -223,6 +223,7 @@ function startTimer() {
 
   const countdown = document.getElementById("countdown");
   const progressCircle = document.querySelector(".progression-circle");
+  progressCircle.style.strokeDashoffset = 421 - (timeLeft * 421) / 60;
 
   // Aggiorna subito il primo valore
   countdown.innerHTML = `
