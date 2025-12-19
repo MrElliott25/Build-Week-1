@@ -139,18 +139,11 @@ svg {
 
 .base-circle {
   fill: none;
-  stroke: #00ffff;
-  stroke-width: 80;
-  stroke-linecap: square;
-}
-
-.progression-circle {
-  fill: none;
   stroke: #c5488d;
   stroke-width: 80;
   stroke-linecap: inherit;
   stroke-dasharray: 1256;
-  stroke-dashoffset: 418; /* dashoffset è la percentuale che occupa il colore, se uguale a dasharray sarà tutto completo */
+  stroke-dashoffset: -450; 
   /* transition: stroke-dashoffset 2s linear forwards; */
 }
 
